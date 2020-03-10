@@ -9,6 +9,7 @@
         {% for question in questions %}
         <p class="topic"> Question Topic: {{question.title}}</p>
         <p class="question">{{question.body}}</p>
+        <a href="{% url 'answer-question' question.pk %}"> <button class="button">Answer Question</button></a>
         <a href="{% url 'delete-question' question.pk %}"><button class="button">Delete</button></a>
     </div>
         {% endfor %}

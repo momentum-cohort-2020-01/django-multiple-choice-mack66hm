@@ -22,6 +22,7 @@ urlpatterns = [
     path('', include('django.contrib.auth.urls')),
     path('', views.home, name='home'),
     path('question/new', views.new_question, name='new-question'),
+    path('question/answer', views.answer_question, name='answer-question'),
     path('question/<int:pk>/delete', views.delete_question, name='delete-question'),
     path('accounts/', include('registration.backends.default.urls'), name='login'),
     path('admin/', admin.site.urls),

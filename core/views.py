@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from core.models import Question
+from core.models import Question, Answer
 from users.models import User
 from core.forms import QuestionForm
 
 
-# @login_required
+@login_required
 def home(request):
     questions = Question.objects.all()
-    return render(request, 'core/home.html', {'questions': questions})
+    answers = Answer.objects.all()
+    return render(request, 'core/home.html', {'questions': questions, 'answers': answers})
 
 
 def new_question(request):
@@ -28,3 +29,7 @@ def delete_question(request, pk):
     question = get_object_or_404(Question, pk=pk)
     question.delete()
     return redirect('home')
+
+def answer_question(request, pk):
+    answer = Answer.objects.all()
+    return render(request, 'core/answer_question', {'form':form, 'answer':answer})
