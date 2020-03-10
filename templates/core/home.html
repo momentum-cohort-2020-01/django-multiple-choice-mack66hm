@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<h3> <a href="{% url 'new-question' %}"><button class="button">Ask Question</button></a></h3>
+
+<body>
+    <div>
+        {% for question in questions %}
+        <p class="topic"> Question Topic: {{question.title}}</p>
+        <p class="question">{{question.body}}</p>
+        <a href="{% url 'delete-question' question.pk %}"><button class="button">Delete</button></a>
+    </div>
+        {% endfor %}
+</body>
+{% endblock %}

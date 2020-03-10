@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/heathermccormick/.local/share/virtualenvs/django-multiple-choice-mack66hm-q8uA6Ni7/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.prospectorEnabled": true,
+    "python.linting.enabled": true
+}

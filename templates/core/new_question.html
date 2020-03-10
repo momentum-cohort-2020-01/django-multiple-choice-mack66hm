@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2> Question: </h2>
+    <form action="" method="POST" class="question-form"> {% csrf_token %}
+        <p>{{question.title}}</p>
+        <table class="details">
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="button" value="Submit">Save</button>
+
+    </form>
+
+    {% endblock %}
