@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from core.models import Question, Answer
 from users.models import User
-from core.forms import QuestionForm
+from core.forms import QuestionForm, AnswerForm
 
 
 @login_required
@@ -32,4 +32,12 @@ def delete_question(request, pk):
 
 def answer_question(request, pk):
     answer = Answer.objects.all()
-    return render(request, 'core/answer_question', {'form':form, 'answer':answer})
+    if request.method == 'POST':
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.save()
+            return redirect('home')
+    else:
+        form = AnswerForm()
+    return render(request, 'core/answer.html', {'form':form, 'answer':answer})
