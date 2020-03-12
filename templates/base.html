@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% block title %}<title>Odd Questions</title>{% endblock %}
 </head>
 <header>
-    <a class="home-button" href="{% url 'home' %}"> Home
+    <a class="home-button" href="{% url 'home' %}"> Home</a>
         <div>
             <a class="logout" href="/accounts/logout">Logout</a>
         </div>
-    </a>
+   
 </header>
 <body>
     <h1>Odd Questions</h1>

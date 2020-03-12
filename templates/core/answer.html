@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 
-<h2> Question: </h2>
-    <form action="" method="POST" class="question-form"> {% csrf_token %}
-        <p>{{question.title}}</p>
+<h2> Answer:  </h2>
+    <form action="" method="POST" class="answer-form"> {% csrf_token %}
+        <p>{{answer.body}}</p>
         <table class="details">
             {{ form.as_table }}
         </table>
