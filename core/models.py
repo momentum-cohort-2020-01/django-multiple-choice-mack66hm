@@ -17,6 +17,7 @@ class Question(models.Model):
 
 
 class Answer(models.Model):
+    answer = models.ForeignKey(to=Question, related_name='answers', on_delete=models.CASCADE, null=True)
     body = models.TextField(max_length=None)
     created_at = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(to=User, related_name='users_answers', on_delete=models.CASCADE, blank=True, null=True)

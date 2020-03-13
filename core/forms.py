@@ -15,4 +15,4 @@ class AnswerForm(forms.ModelForm):
 
     class Meta:
         model = Answer
-        fields = ('body', 'user',)
+        fields = ('answer', 'body', 'user',)
