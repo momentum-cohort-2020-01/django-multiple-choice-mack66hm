@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from core.models import Question, Answer
+from core.models import Question, Answer, Favorite
 from users.models import User
 from core.forms import QuestionForm, AnswerForm
 
@@ -9,7 +9,7 @@ from core.forms import QuestionForm, AnswerForm
 def home(request):
     questions = Question.objects.all()
     answers = Answer.objects.all()
-    return render(request, 'core/home.html', {'questions': questions, 'answers': answers})
+    return render(request, 'core/home.html', {'questions': questions,'answers': answers})
 
 
 def new_question(request):
@@ -41,3 +41,9 @@ def answer_question(request, pk):
     else:
         form = AnswerForm()
     return render(request, 'core/answer.html', {'form':form, 'answer':answer})
+
+
+def favorites(request, pk):
+    answer = get_object_or_404(Answer, pk=answer.pk)
+    favorite = Favorite.objects.create(user=request.user, answer=answer)
+    return redirect('home')

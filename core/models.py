@@ -24,3 +24,17 @@ class Answer(models.Model):
 
     def __str__(self):
         return f'Answer: {self.body} {self.created_at}'
+    
+    @property
+    def get_favorite_count(self):
+        return len(self.favorites.all())
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(to=User, related_name='favorites', on_delete=models.CASCADE)
+    answer =models.ForeignKey(to=Answer, related_name='favorites', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'{self.user} liked {self.answer}'

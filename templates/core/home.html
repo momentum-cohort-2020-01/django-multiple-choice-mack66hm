@@ -9,7 +9,7 @@
     <div class="questions">
         {% for question in questions %}
         <option value={{question.pk}}>Question: {{question.title}}</option>
-        <input for=question class="bg-near-white">{{question.body}}</input>
+        <p>{{question.body}}</p>
         <a href="{% url 'answer-question' question.pk %}"> <button class="button">Answer Question</button></a>
         <a href="{% url 'delete-question' question.pk %}"><button class="button">Delete</button></a>
     </div>
