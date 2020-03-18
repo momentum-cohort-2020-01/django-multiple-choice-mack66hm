@@ -6,8 +6,8 @@
 <h3> <a href="{% url 'new-question' %}"><button class="button">Ask Question</button></a></h3>
 
 <body>
+    {% for question in questions %}
     <div class="questions">
-        {% for question in questions %}
         <option value={{question.pk}}>Question: {{question.title}}</option>
         <p>{{question.body}}</p>
         <a href="{% url 'answer-question' question.pk %}"> <button class="button">Answer Question</button></a>
